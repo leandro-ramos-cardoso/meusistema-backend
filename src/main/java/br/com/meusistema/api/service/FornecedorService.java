@@ -5,6 +5,8 @@ import br.com.meusistema.api.repository.FornecedorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class FornecedorService {
@@ -13,5 +15,9 @@ public class FornecedorService {
 
     public void criarFornecedor(Fornecedor fornecedor) {
         fornecedorRepository.save(fornecedor);
+    }
+
+    public List<Fornecedor> listarTodosFornecedores() {
+        return fornecedorRepository.findAll();
     }
 }

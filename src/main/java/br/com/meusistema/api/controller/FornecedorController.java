@@ -6,16 +6,24 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/fornecedores")
-@RequiredArgsConstructor
+@RequiredArgsConstructor // para injetar no construtor
 public class FornecedorController {
 
     private final FornecedorService fornecedorService;
 
-    @PostMapping // Fazendo o POST (REQUISIÇÃO - REQUEST)
-    @ResponseStatus(HttpStatus.CREATED) // Toda REQUEST tem sua RESPONSE (Retorna 201 Created)
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public void criarFornecedor(@RequestBody Fornecedor fornecedor) {
         fornecedorService.criarFornecedor(fornecedor);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<Fornecedor> listarTodosFornecedores() {
+        return fornecedorService.listarTodosFornecedores();
     }
 }

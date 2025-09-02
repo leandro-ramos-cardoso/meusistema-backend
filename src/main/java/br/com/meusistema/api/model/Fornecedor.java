@@ -19,7 +19,7 @@ public class Fornecedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "nome_fantasia", nullable = false, length = 100)
     private String nomeFantasia;
@@ -34,10 +34,11 @@ public class Fornecedor {
     private TipoFornecedorEnum tipoFornecedor;
 
     @Column(name = "criado_em", nullable = false, updatable = false)
-    @CreationTimestamp // O campo com hora e data atual
+    @CreationTimestamp
     private LocalDateTime criadoEm;
 
     @Column(name = "atualizado_em")
-    @UpdateTimestamp // Quando atualizou e não obrigatório
+    @UpdateTimestamp
     private LocalDateTime atualizadoEm;
+
 }

@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,5 +20,9 @@ public class FornecedorService {
 
     public List<Fornecedor> listarTodosFornecedores() {
         return fornecedorRepository.findAll();
+    }
+
+    public Optional<Fornecedor> buscarFornecedorPorId(Long id) {
+        return fornecedorRepository.findById(id);
     }
 }

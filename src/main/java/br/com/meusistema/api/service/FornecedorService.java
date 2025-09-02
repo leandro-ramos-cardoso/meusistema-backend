@@ -25,4 +25,8 @@ public class FornecedorService {
     public Optional<Fornecedor> buscarFornecedorPorId(Long id) {
         return fornecedorRepository.findById(id);
     }
+
+    public void deletarFornecedorPorId(Long id) {
+        fornecedorRepository.deleteById(id);
+    }
 }

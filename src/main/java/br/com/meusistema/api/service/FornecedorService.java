@@ -1,5 +1,6 @@
 package br.com.meusistema.api.service;
 
+import br.com.meusistema.api.model.Endereco;
 import br.com.meusistema.api.model.Fornecedor;
 import br.com.meusistema.api.repository.FornecedorRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,19 @@ public class FornecedorService {
     private final FornecedorRepository fornecedorRepository;
 
     public void criarFornecedor(Fornecedor fornecedor) {
+        fornecedor.setEndereco(
+                new Endereco(
+                        null,
+                        fornecedor.getEndereco().getLogradouro(),
+                        fornecedor.getEndereco().getNumero(),
+                        fornecedor.getEndereco().getComplemento(),
+                        fornecedor.getEndereco().getBairro(),
+                        fornecedor.getEndereco().getCidade(),
+                        fornecedor.getEndereco().getEstado(),
+                        fornecedor.getEndereco().getPais(),
+                        fornecedor.getEndereco().getCep()
+                )
+        );
         fornecedorRepository.save(fornecedor);
     }
 

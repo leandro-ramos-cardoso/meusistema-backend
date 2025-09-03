@@ -39,4 +39,10 @@ public class FornecedorController {
     public void deletarFornecedorPorId(@PathVariable Long id) {
         fornecedorService.deletarFornecedorPorId(id);
     }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void atualizarFornecedorPorId(@PathVariable Long id, @RequestBody Fornecedor fornecedor) {
+        fornecedorService.atualizarFornecedorPorId(id, fornecedor);
+    }
 }
